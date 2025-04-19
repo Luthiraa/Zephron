@@ -30,7 +30,9 @@ This repository contains C code for an NIOS V based robot arm controller featuri
 
 ## Building
 Create a directory with all your code (cpp files and header files) and copy over the MAKEFILE and gmake.bat file
-*Note the MAKFILE is already configured to work for the math.h library*
+
+**Note the MAKFILE is already configured to work for the math.h library**
+
 Open a powershell prompt in the directory that the project/file is located and run the following commands sequentially
 
 **Compile & Debug**:  
