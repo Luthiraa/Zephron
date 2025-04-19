@@ -8,7 +8,13 @@ This repository contains C code for an NIOS V based robot arm controller featuri
 - **PS/2 Keyboard Input**: Five servos (four segments + claw) controlled via PS/2 scancodes
 - **VGA Dashboard**: Double-buffered 320×240 graphics display showing timer values and a rendered arm
 
-## Hardware Mapping
+
+
+## Electrical Specifications
+
+## Embedded Software Design
+
+Memory-mapped I/O communication is implemented using AXI protocol semantics
 
 | Peripheral            | Base Address    | Notes                                  |
 |-----------------------|-----------------|----------------------------------------|
@@ -19,12 +25,8 @@ This repository contains C code for an NIOS V based robot arm controller featuri
 | PID Sensor Input      | `0xFF200080`    | 8‑bit process variable                 |
 | PID Output            | `0xFF200000`    | Shares LED bus for demonstration       |
 
-## Electrical Specifications'
-
-## Embedded Software Design
-
 - **AXI Protocol**
-  - Memory-mapped I/O communication is implemented using AXI protocol semantics.
+
   - Peripherals like LEDs, PS2, and custom PID controllers are accessed via base addresses such as:
     ```c
     #define LED_BASE         0xFF200000
@@ -100,10 +102,6 @@ This repository contains C code for an NIOS V based robot arm controller featuri
     - Integrated error
     - Derivative of error
   - Output is written back via AXI to `PID_OUTPUT_BASE`.
-
-The embedded software ties all components together, handling input, processing, output, and visualization in a tightly synchronized loop.
-
-
 
 
 
