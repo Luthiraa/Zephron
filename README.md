@@ -39,3 +39,6 @@ This repository contains C code for an NIOS V based robot arm controller featuri
    continue
    # or simply:
    c
+   # to get a cli interface for terminal output: 
+   ./gmake.bat TERMINAL
+
