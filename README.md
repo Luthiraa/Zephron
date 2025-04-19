@@ -1,5 +1,6 @@
 # Zephron: Robot Arm Controller with VGA Dashboard and PID Control
-  
+![](zephron.jpg)
+
 ## Overview
 
 This repository contains C code for an NIOS V based robot arm controller featuring:
