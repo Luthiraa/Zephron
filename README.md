@@ -27,20 +27,15 @@ This repository contains C code for an NIOS V based robot arm controller featuri
 | PID Output            | `0xFF200000`    | Shares LED bus for demonstration       |
 
 
-# Build for DE1-SoC hardware
-./gmake.bat DE1-SOC
 
-# Start the GDB server
-./gmake.bat GDB_SERVER
+## Building
 
-# Launch the GDB client (after the server is running)
-./gmake.bat GDB_CLIENT
-
-# In the GDB prompt:
-continue
-# or simply:
-c
-
-# Open a terminal window for console output (e.g., printf):
-./gmake.bat TERMINAL
-
+**Compile & Debug**:  
+   ```bash
+   ./gmake.bat DE1-SOC
+   ./gmake.bat GDB_SERVER
+   ./gmake.bat GDB_CLIENT
+   # In the GDB prompt:
+   continue
+   # or simply:
+   c
