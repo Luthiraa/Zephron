@@ -13,6 +13,17 @@ This repository contains C code for an NIOS V based robot arm controller featuri
 
 ## Electrical Specifications
 
+- **5× Servo Motors** (standard hobby servos; draw up to 12 V under load)
+- **3D‑Printed Mechanical Robot Arm Structure**
+- **Arduino Uno** (I²C bridge between DE1‑SoC and PWM driver)
+- **PCA9685 16‑Channel 12‑Bit PWM Servo Motor Driver (I²C)**
+- **Breadboard** (for prototyping power and signal distribution)
+- **DE1‑SoC Development Board**
+- **Jumper Wires** (male‑to‑male and male‑to‑female)
+- **12 V Power Supply Adapter** (must be rated for the combined stall‑current of all servos)
+
+> **Note:** Our servos can draw up to 12 V at stall. Be sure to use a power supply rated for that voltage **and** capable of delivering sufficient current. Running at the upper limit increases available torque but can also lead to stalling under heavy loads, which degrades positional accuracy.
+
 ## Embedded Software Design
 
 Memory-mapped I/O communication is implemented using AXI protocol semantics
