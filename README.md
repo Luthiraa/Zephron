@@ -37,13 +37,13 @@ Open a powershell prompt in the directory that the project/file is located and r
 
 **Compile & Debug**:  
    ```bash
-   ./gmake.bat DE1-SOC
-   ./gmake.bat GDB_SERVER
-   ./gmake.bat GDB_CLIENT
+   .\gmake.bat DE1-SOC
+   .\gmake.bat GDB_SERVER
+   .\gmake.bat GDB_CLIENT
    # In the GDB prompt:
    continue
    # or simply:
    c
    # to get a cli interface for terminal output: 
-   ./gmake.bat TERMINAL
+   .\gmake.bat TERMINAL
 
