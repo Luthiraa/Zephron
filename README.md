@@ -4,7 +4,7 @@
 
 This repository contains C code for an NIOS V based robot arm controller featuring:
 - **AXI GPIO Integration**: All I/O (LEDs, JP1 pins, PS/2 data, VGA controller, sensor & output buses) accessed via AXI reads/writes
-- - **PID Controller**: Implements a PID loop reading a process variable over AXI and driving an output bus
+- **PID Controller**: Implements a PID loop reading a process variable over AXI and driving an output bus
 - **PS/2 Keyboard Input**: Five servos (four segments + claw) controlled via PS/2 scancodes
 - **VGA Dashboard**: Double-buffered 320×240 graphics display showing timer values and a rendered arm
 
