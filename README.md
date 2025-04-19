@@ -1,6 +1,6 @@
 # Robot Arm Controller with VGA Dashboard and PID Control
 
-This repository contains C code for an FPGA-based robot arm controller featuring:
+This repository contains C code for an NIOS V based robot arm controller featuring:
 
 - **PS/2 Keyboard Input**: Five servos (four segments + claw) controlled via PS/2 scancodes.  
 - **VGA Dashboard**: Double-buffered 320×240 graphics display showing timer values and a rendered arm.  
