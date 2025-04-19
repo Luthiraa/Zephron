@@ -37,8 +37,13 @@ Open a powershell prompt in the directory that the project/file is located and r
 
 **Compile & Debug**:  
    ```bash
+   # init de1-soc by downloading nios V onto fpga board
    .\gmake.bat DE1-SOC
+   # start gdb server
    .\gmake.bat GDB_SERVER
+   # compile program
+   .\gmake.bat COMPILE
+   # load program onto nios V processor
    .\gmake.bat GDB_CLIENT
    # In the GDB prompt:
    continue
