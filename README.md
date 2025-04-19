@@ -104,7 +104,7 @@ Memory-mapped I/O communication is implemented using AXI protocol semantics
     - Derivative of error
   - Output is written back via AXI to `PID_OUTPUT_BASE`.
 
-- ### **Arduino as I2C Intermediary**
+- **Arduino as I2C Intermediary**
   - **Reason for Arduino**:  
     The DE1-SoC cannot directly communicate with the I2C-based PWM servo driver. So the Arduino acts as a **bridge**, receiving timer values via digital pins , converting them into I2C commands, and sending them to the PWM servo controller
 
@@ -112,6 +112,7 @@ Memory-mapped I/O communication is implemented using AXI protocol semantics
     The overall system is a **hybrid embedded architecture**:
     - The **DE1-SoC** handles real-time user input, PID computation, and VGA output.
     - The **Arduino** handles low-level hardware actuation via I2C.
+
 
 ## Building
 Create a directory with all your code (cpp files and header files) and copy over the MAKEFILE and gmake.bat file
