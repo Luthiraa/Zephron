@@ -1,26 +1,24 @@
-# Zephron: Robot Arm Controller with VGA Dashboard and PID Control
-![](zephron.jpg)
+# Zephron: Robot Arm Controller with VGA Dashboard and PS/2 Input
+![zephron](zephron.jpg)
 
 ## Overview
 
-This repository contains C code for an NIOS V based robot arm controller featuring:
-- **AXI GPIO Integration**: All I/O (LEDs, JP1 pins, PS/2 data, VGA controller, sensor & output buses) accessed via AXI reads/writes
-- **PID Controller**: Implements a PID loop reading a process variable over AXI and driving an output bus
-- **PS/2 Keyboard Input**: Five servos (four segments + claw) controlled via PS/2 scancodes
-- **VGA Dashboard**: Double-buffered 320×240 graphics display showing timer values and a rendered arm
+This repository contains C code for an NIOS V-based robot arm controller featuring:
 
-
+- **AXI GPIO Integration**: All I/O (LEDs, JP1 pins, PS/2 data, VGA controller, sensor & output buses) accessed via AXI reads/writes  
+- **PS/2 Keyboard Input**: Five servos (four segments + claw) controlled via PS/2 scancodes  
+- **VGA Dashboard**: Double-buffered 320×240 graphics display showing timer values and a rendered arm  
 
 ## Electrical Specifications
 
-- **5× Servo Motors** (standard hobby servos; draw up to 12 V under load)
-- **3D‑Printed Mechanical Robot Arm Structure**
-- **Arduino Uno** (I²C bridge between DE1‑SoC and PWM driver)
-- **PCA9685 16‑Channel 12‑Bit PWM Servo Motor Driver (I²C)**
-- **Breadboard** (for prototyping power and signal distribution)
-- **DE1‑SoC Development Board**
-- **Jumper Wires** (male‑to‑male and male‑to‑female)
-- **12 V Power Supply Adapter** (must be rated for the combined stall‑current of all servos)
+- **5× Servo Motors** (standard hobby servos; draw up to 12 V under load)  
+- **3D‑Printed Mechanical Robot Arm Structure**  
+- **Arduino Uno** (I²C bridge between DE1‑SoC and PWM driver)  
+- **PCA9685 16‑Channel 12‑Bit PWM Servo Motor Driver (I²C)**  
+- **Breadboard** (for prototyping power and signal distribution)  
+- **DE1‑SoC Development Board**  
+- **Jumper Wires** (male‑to‑male and male‑to‑female)  
+- **12 V Power Supply Adapter** (must be rated for the combined stall‑current of all servos)  
 
 > **Note:** Our servos can draw up to 12 V at stall. Be sure to use a power supply rated for that voltage **and** capable of delivering sufficient current. Running at the upper limit increases available torque but can also lead to stalling under heavy loads, which degrades positional accuracy.
 
@@ -34,18 +32,18 @@ Memory-mapped I/O communication is implemented using AXI protocol semantics
 | Onboard LEDs          | `0xFF200000`    | 10‑bit LED bus                         |
 | JP1 Pins              | `0xFF200060`    | 6‑bit output bus                       |
 | VGA Pixel Controller  | `0xFF203020`    | Buffer swap control & status           |
-| PID Sensor Input      | `0xFF200080`    | 8‑bit process variable                 |
-| PID Output            | `0xFF200000`    | Shares LED bus for demonstration       |
+| Sensor Input          | `0xFF200080`    | 8‑bit value from robotic arm sensors   |
 
-- **AXI Protocol**
+### AXI Protocol
 
-  - Peripherals like LEDs, PS2, and custom PID controllers are accessed via base addresses such as:
-    ```c
-    #define LED_BASE         0xFF200000
-    #define JP1_BASE         0xFF200060
-    #define PS2_BASE         0xFF200100
-    #define PID_SENSOR_BASE  0xFF200080
-    ```
+Peripherals like LEDs, PS/2, and sensor interfaces are accessed via base addresses such as:
+
+```c
+#define LED_BASE         0xFF200000
+#define JP1_BASE         0xFF200060
+#define PS2_BASE         0xFF200100
+#define SENSOR_BASE      0xFF200080
+```
   - Read and write functions wrap AXI access for clarity:
     ```c
     static inline uint32_t axi_read(uint32_t base);
